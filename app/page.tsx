@@ -1,5 +1,9 @@
 import { InfoCard } from "@/components/info-card"
 
+export const metadata = {
+  title: "Khaomi",
+}
+
 export default function Page() {
   return (
     <div>
