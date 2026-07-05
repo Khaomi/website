@@ -8,7 +8,7 @@
             <main class="grow">
                 <slot />
             </main>
-            <footer class="h-[9rem]">
+            <footer class="h-[8rem]">
                 <Footer />
             </footer>
         </div>

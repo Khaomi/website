@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center">
+    <div class="flex justify-center text-xl">
         <div class="p-2">
             <NuxtLink to="/">Home</NuxtLink>
         </div>

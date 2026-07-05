@@ -83,7 +83,7 @@ const FOOTER_DATA: FooterSection[] =
     <div class="flex flex-col h-full">
         <!-- The button -->
         <div class="flex grow justify-center">
-            <div v-for="section in FOOTER_DATA" class="prose lg:prose-xl flex flex-col mx-4">
+            <div v-for="section in FOOTER_DATA" class="prose lg:prose-l flex flex-col mx-4">
                 <h5>
                     {{ section.name }}
                 </h5>
