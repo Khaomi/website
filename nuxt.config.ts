@@ -27,6 +27,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public:
     {
+      baseUrl: "https://khaomi.dev/",
       repository: "https://github.com/Khaomi/website",
       commit: commitHash,
       isStaging
