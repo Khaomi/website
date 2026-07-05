@@ -1,4 +1,18 @@
+import { execSync } from "node:child_process";
 import tailwindcss from "@tailwindcss/vite";
+
+let commitHash: string | undefined;
+let isStaging = false;
+
+try {
+  commitHash = execSync("git rev-parse --short HEAD").toString().replaceAll("\r\n", "\n").replaceAll("\n", "");
+} catch (_) { }
+
+try {
+  execSync('git diff --quiet');
+} catch (error) {
+  isStaging = true;
+}
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -10,4 +24,12 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  runtimeConfig: {
+    public:
+    {
+      repository: "https://github.com/Khaomi/website",
+      commit: commitHash,
+      isStaging
+    }
+  }
 })

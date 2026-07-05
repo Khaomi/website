@@ -1,4 +1,6 @@
 <script setup lang="tsx">
+const runtimeConfig = useRuntimeConfig();
+
 type ButtonData = {
     type: "text",
     text: string
@@ -92,7 +94,16 @@ const FOOTER_DATA: FooterSection[] =
         </div>
         <!-- The text at the bottom -->
         <div class="flex justify-center content-center">
-            Website made with ❤️ by Khaomi
+            Website made with ❤️ by Khaomi |
+            <div class="px-1">
+                <div v-if="runtimeConfig.public.isStaging">
+                    Staging
+                </div>
+                <NuxtLink v-else
+                    :to="(runtimeConfig.public.commit ? runtimeConfig.public.repository + '/commit/' + runtimeConfig.public.commit : runtimeConfig.repository) as string">
+                    {{ "Commit " + (runtimeConfig.public.commit ?? "unknown") }}
+                </NuxtLink>
+            </div>
         </div>
     </div>
 </template>
