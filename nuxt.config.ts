@@ -9,7 +9,7 @@ try {
 		.toString()
 		.replaceAll("\r\n", "\n")
 		.replaceAll("\n", "");
-} catch (_) {}
+} catch (_) { }
 
 try {
 	execSync("git diff --quiet");
