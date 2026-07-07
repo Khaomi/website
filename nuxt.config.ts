@@ -19,11 +19,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['./app/assets/css/tailwind.css', './app/assets/css/main.css'],
+
   vite: {
     plugins: [
       tailwindcss(),
     ],
   },
+
   runtimeConfig: {
     public:
     {
@@ -32,5 +34,7 @@ export default defineNuxtConfig({
       commit: commitHash,
       isStaging
     }
-  }
+  },
+
+  modules: ["@nuxtjs/color-mode", "shadcn-nuxt", "@vueuse/nuxt"]
 })

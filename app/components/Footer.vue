@@ -1,4 +1,6 @@
 <script setup lang="tsx">
+import { Button } from '@/components/ui/button';
+
 const runtimeConfig = useRuntimeConfig();
 
 type ButtonData = {
@@ -13,20 +15,6 @@ type ButtonData = {
 type FooterSection = {
     name: string,
     buttons: ButtonData[]
-}
-
-const MyButton = ({ data: data }: { data: ButtonData }) => {
-    switch (data.type) {
-        case "text": {
-            return <div>{data.text}</div>
-        }
-        case "link": {
-            return <NuxtLink to={data.to}>{data.text}</NuxtLink>
-        }
-        default: {
-            return <></>
-        }
-    }
 }
 
 const FOOTER_DATA: FooterSection[] =
@@ -83,26 +71,34 @@ const FOOTER_DATA: FooterSection[] =
     <div class="flex flex-col h-full">
         <!-- The button -->
         <div class="flex grow justify-center">
-            <div v-for="section in FOOTER_DATA" class="prose lg:prose-l flex flex-col mx-4">
-                <h5>
+            <!-- prose lg:prose-l  -->
+            <div v-for="section in FOOTER_DATA" class="flex flex-col mx-4">
+                <span class="px-2">
                     {{ section.name }}
-                </h5>
+                </span>
                 <div v-for="button in section.buttons" class="pb-2">
-                    <MyButton :data="button" />
+                    <!-- <MyButton :data="button" /> -->
+                    <span v-if="button.type === 'text'">{{ button.text }}</span>
+                    <Button v-else-if="button.type === 'link'" variant="link" as-child>
+                        <NuxtLink :to="button.to">{{ button.text }}</NuxtLink>
+                    </Button>
+                    <div v-else />
                 </div>
             </div>
         </div>
         <!-- The text at the bottom -->
-        <div class="flex justify-center content-center">
+        <div class="flex justify-center items-center">
             Website made with ❤️ by Khaomi |
             <div class="px-1">
                 <div v-if="runtimeConfig.public.isStaging">
                     Staging
                 </div>
-                <NuxtLink v-else
-                    :to="(runtimeConfig.public.commit ? runtimeConfig.public.repository + '/commit/' + runtimeConfig.public.commit : runtimeConfig.repository) as string">
-                    {{ "Commit " + (runtimeConfig.public.commit ?? "unknown") }}
-                </NuxtLink>
+                <Button variant="link" as-child v-else>
+                    <NuxtLink
+                        :to="(runtimeConfig.public.commit ? runtimeConfig.public.repository + '/commit/' + runtimeConfig.public.commit : runtimeConfig.repository) as string">
+                        {{ "Commit " + (runtimeConfig.public.commit ?? "unknown") }}
+                    </NuxtLink>
+                </Button>
             </div>
         </div>
     </div>
