@@ -92,7 +92,7 @@ const FOOTER_DATA: FooterSection[] = [
 			<span>Website made with ❤️ by Khaomi</span>
 			<span class="pl-3">|</span>
 			<div>
-				<div v-if="runtimeConfig.public.isStaging">
+				<div v-if="runtimeConfig.public.isStaging" class="pl-3">
 					Staging
 				</div>
 				<Button variant="link" as-child v-else>
