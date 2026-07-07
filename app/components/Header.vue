@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import {
-    NavigationMenu,
-    NavigationMenuList,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuTrigger,
-    NavigationMenuContent,
-} from '@/components/ui/navigation-menu'
+	NavigationMenu,
+	NavigationMenuList,
+	NavigationMenuItem,
+	NavigationMenuLink,
+	NavigationMenuTrigger,
+	NavigationMenuContent,
+} from "@/components/ui/navigation-menu";
 
 const colorMode = useColorMode();
 
 const COLOR_LIST = ["system", "dark", "light"];
 
-const TO_TITLE = (str: string) => { const s = str.split(""); return s[0]?.toUpperCase() + s.slice(1).join("") }
+const TO_TITLE = (str: string) => {
+	const s = str.split("");
+	return s[0]?.toUpperCase() + s.slice(1).join("");
+};
 </script>
 
 <template>

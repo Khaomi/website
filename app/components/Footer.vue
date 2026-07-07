@@ -1,70 +1,71 @@
 <script setup lang="tsx">
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/button";
 
 const runtimeConfig = useRuntimeConfig();
 
-type ButtonData = {
-    type: "text",
-    text: string
-} | {
-    type: "link",
-    text: string,
-    to: string,
-};
+type ButtonData =
+	| {
+			type: "text";
+			text: string;
+	  }
+	| {
+			type: "link";
+			text: string;
+			to: string;
+	  };
 
 type FooterSection = {
-    name: string,
-    buttons: ButtonData[]
-}
+	name: string;
+	buttons: ButtonData[];
+};
 
-const FOOTER_DATA: FooterSection[] =
-    [
-        {
-            "name": "Contacts",
-            "buttons": [
-                {
-                    "type": "link",
-                    "to": "https://discord.com/users/597360430830059520",
-                    "text": "Discord"
-                },
-                {
-                    "type": "link",
-                    "to": "https://t.me/khaomi",
-                    "text": "Telegram"
-                }
-            ]
-        },
-        {
-            "name": "Social",
-            "buttons": [
-                {
-                    "type": "link",
-                    "to": "https://bsky.app/profile/khaomi.bsky.social",
-                    "text": "Bluesky"
-                },
-                {
-                    "type": "link",
-                    "to": "https://twitter.com/KhaomiAvali",
-                    "text": "Twitter"
-                },
-            ]
-        },
-        {
-            "name": "Other",
-            "buttons": [
-                {
-                    "type": "link",
-                    "to": "mailto:me+website@khaomi.dev",
-                    "text": "Mail"
-                },
-                {
-                    "type": "link",
-                    "to": "https://linktr.ee/Khaomi",
-                    "text": "Linktree"
-                }
-            ]
-        }
-    ] 
+const FOOTER_DATA: FooterSection[] = [
+	{
+		name: "Contacts",
+		buttons: [
+			{
+				type: "link",
+				to: "https://discord.com/users/597360430830059520",
+				text: "Discord",
+			},
+			{
+				type: "link",
+				to: "https://t.me/khaomi",
+				text: "Telegram",
+			},
+		],
+	},
+	{
+		name: "Social",
+		buttons: [
+			{
+				type: "link",
+				to: "https://bsky.app/profile/khaomi.bsky.social",
+				text: "Bluesky",
+			},
+			{
+				type: "link",
+				to: "https://twitter.com/KhaomiAvali",
+				text: "Twitter",
+			},
+		],
+	},
+	{
+		name: "Other",
+		buttons: [
+			{
+				type: "link",
+				to: "mailto:me+website@khaomi.dev",
+				text: "Mail",
+			},
+			{
+				type: "link",
+				to: "https://linktr.ee/Khaomi",
+				text: "Linktree",
+			},
+		],
+	},
+];
 </script>
 
 <template>
