@@ -1,7 +1,7 @@
 <template>
     <ColorScheme placeholder="dark" tag="div">
         <!-- Incase we want to add fixed bg or something that don't need p-1, so we put it here lmao -->
-        <div class="flex flex-col min-h-screen min-w-screen p-2 ">
+        <div class="flex flex-col min-h-screen min-w-screen p-3">
             <div>
                 <Header />
             </div>
