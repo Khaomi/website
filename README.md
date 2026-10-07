@@ -1,21 +1,39 @@
-# Next.js template
+# Nuxt Minimal Starter
 
-This is a Next.js template with shadcn/ui.
+Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-## Adding components
+## Setup
 
-To add components to your app, run the following command:
+Make sure to install dependencies:
 
 ```bash
-npx shadcn@latest add button
+# bun
+bun install
 ```
 
-This will place the ui components in the `components` directory.
+## Development Server
 
-## Using components
+Start the development server on `http://localhost:3000`:
 
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button"
+```bash
+# bun
+bun run dev
 ```
+
+## Production
+
+Build the application for production:
+
+```bash
+# bun
+bun run build
+```
+
+Locally preview production build:
+
+```bash
+# bun
+bun run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
